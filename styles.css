@@ -13,9 +13,13 @@ h1 {
 
 #bookForm,
 #bookList {
-    width: 500px;
+    width: 400px;
     max-width: 80%;
     margin: 20px auto;
+}
+
+#bookList {
+    margin-bottom: 50px;
 }
 
 input {
@@ -29,4 +33,9 @@ button {
     padding: 5px;
     width: 100px;
     margin-top: 20px;
+}
+
+.removeBook {
+margin-bottom: 10px;
+display: block;
 }
