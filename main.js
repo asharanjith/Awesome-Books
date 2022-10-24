@@ -8,8 +8,8 @@ function displayBook() {
     bookDisplay.innerHTML = bookList.map((book, i) => {
         return `
             <li>
-                <span class="bookName">${book.name}</span>
-                <span class="bookAuthor">${book.author}</span> 
+                <p class="bookName">${book.name}</p>
+                <p class="bookAuthor">${book.author}</p> 
                 <button data-index=${i}>Remove</button>
                 <hr>
             </li>   
