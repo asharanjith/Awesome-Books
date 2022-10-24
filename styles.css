@@ -39,3 +39,14 @@ button {
 margin-bottom: 10px;
 display: block;
 }
+li{
+    list-style: none;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+.bookName,.bookAuthor{
+    padding: 10px;
+}
+hr{
+    margin: 10px auto;
+}

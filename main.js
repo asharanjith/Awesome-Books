@@ -11,7 +11,8 @@ function displayBook() {
                 <span class="bookName">${book.name}</span>
                 <span class="bookAuthor">${book.author}</span> 
                 <button data-index=${i}>Remove</button>
-            </li>
+                <hr>
+            </li>   
         `;
     }).join('');
 }
