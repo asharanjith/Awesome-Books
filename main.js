@@ -2,21 +2,34 @@ const bookName = document.querySelector('.bookName');
 const bookAuthor = document.querySelector('.bookAuthor');
 const form = document.querySelector('.addBook');
 const bookDisplay = document.querySelector('#bookList');
-var bookList = [];
 
 
 //when the page loads
 //check for data in the local storage
-const displayBooks = JSON.parse(localStorage.getItem('bookData'));
-// bookList = savedData;
-console.log(bookList)
 
-if(bookList) {
-  populateUI()
-} else {
-  
+const populateUI = (bookData) => {
+  const bookDiv = document.createElement('div');
+    bookDiv.classList.add('book');
+
+    bookDiv.innerHTML = `<p>${bookData.name}</p>
+    <p>${bookData.author}</p>
+    <button class="removeBook">Remove</button>
+    <hr>
+    `;
+    bookDisplay.appendChild(bookDiv);
 }
-  
+
+
+const displayBooks = JSON.parse(localStorage.getItem('bookData'));
+
+if(displayBooks) {
+  displayBooks.forEach(bookItem => {
+    populateUI(bookItem)
+  });
+}
+
+const bookList = [];
+
 function savetoLocalStorage() {
     // bookList = JSON.parse(localStorage.getItem('bookData'));
       const name = bookName.value.trim();
@@ -28,15 +41,17 @@ function savetoLocalStorage() {
         author: author
       }
 
-    bookList.push(bookData);
-
     localStorage.setItem('bookData', JSON.stringify(bookList));
-
+    bookList.push(bookData);
+    populateUI(bookData);
 }
+console.log(bookList)
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    savetoLocalStorage();
+    if(bookName.value && bookAuthor.value) {
+      savetoLocalStorage();
+    }
     form.reset();
   });
 
