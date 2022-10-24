@@ -10,7 +10,7 @@ function displayBook() {
             <li>
                 <span class="bookName">${book.name}</span>
                 <span class="bookAuthor">${book.author}</span> 
-                <button data-index=${i}>Delete</button>
+                <button data-index=${i}>Remove</button>
             </li>
         `;
     }).join('');
