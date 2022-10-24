@@ -1,46 +1,41 @@
 const bookName = document.querySelector('.bookName');
 const bookAuthor = document.querySelector('.bookAuthor');
 const form = document.querySelector('.addBook');
-const bookDisplay = document.querySelector('#bookList');
+const bookDisplay = document.querySelector('.book');
 let bookList = JSON.parse(localStorage.getItem('bookList')) || [];
+
+function displayBook() {
+    bookDisplay.innerHTML = bookList.map((book, i) => {
+        return `
+            <li>
+                <span class="bookName">${book.name}</span>
+                <span class="bookAuthor">${book.author}</span> 
+                <button data-index=${i}>Delete</button>
+            </li>
+        `;
+    }).join('');
+}
   
-function savetoLocalStorage() {
+function addBook(e) {
+    e.preventDefault();
+    const name = bookName.value;
+    const author = bookAuthor.value;
+    const book = { name, author };
+    bookList.push(book);
+    displayBook();
     localStorage.setItem('bookList', JSON.stringify(bookList));
-    let bookData = {
-        name: bookName.value,
-        author: bookAuthor.value,
-    };
-    bookList.push(bookData);
-    localStorage.setItem('bookData', JSON.stringify(bookList));
+    this.reset();
 }
 
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    savetoLocalStorage();
-    form.reset();
-  });
+function deleteBook(e) {
+    if (!e.target.matches('button')) return;
+    const index = e.target.dataset.index;
+    bookList.splice(index, 1);
+    displayBook();
+    localStorage.setItem('bookList', JSON.stringify(bookList));
+}
 
-  document.addEventListener('DOMContentLoaded', () => {
-    let bookListItems = JSON.parse(localStorage.getItem('bookData'));
-    if(bookListItems) {
-        bookListItems.forEach((bookData) => {
-            const bookDiv = document.createElement('div');
-            bookDiv.classList.add('book');
-        
-            bookDiv.innerHTML = `<p>${bookData.name}</p>
-            <p>${bookData.author}</p>
-            <button class="removeBook">Remove</button>
-            <hr>
-            `;
-            bookDisplay.appendChild(bookDiv);
-            });
-    }
-    
-  });
+form.addEventListener('submit', addBook);
+bookDisplay.addEventListener('click', deleteBook);
+displayBook();
 
-    bookDisplay.addEventListener('click', (e) => {
-        if(e.target.classList.contains('removeBook')) {
-            e.target.parentElement.remove();
-            // localStorage.removeItem('bookData');       
-        }
-    });
