@@ -7,8 +7,7 @@ const bookList = [];
 
   
 function savetoLocalStorage() {
-    const bookList = JSON.parse(localStorage.getItem('bookData'));
-
+    // bookList = JSON.parse(localStorage.getItem('bookData'));
     const bookData = {
         name: bookName.value,
         author: bookAuthor.value,
@@ -18,7 +17,6 @@ function savetoLocalStorage() {
 
     localStorage.setItem('bookData', JSON.stringify(bookList));
 
-    console.log(bookData)
 }
 
 form.addEventListener('submit', (e) => {
@@ -29,27 +27,24 @@ form.addEventListener('submit', (e) => {
 
 //   console.log(bookList);
 
-//   document.addEventListener('DOMContentLoaded', () => {
-    // const bookList = JSON.parse(localStorage.getItem('bookData'));
-    // if (formDataInputs != null) {
-    //   nameElement.value = formDataInputs.name;
-    //   email.value = formDataInputs.email;
-    //   msgElement.value = formDataInputs.message;
-    // }
-//   });
+  document.addEventListener('DOMContentLoaded', () => {
+    const bookListItems = JSON.parse(localStorage.getItem('bookData'));
+    if(bookListItems) {
+        bookListItems.forEach((bookData) => {
+            const bookDiv = document.createElement('div');
+            bookDiv.classList.add('book');
+        
+            bookDiv.innerHTML = `<p>${bookData.name}</p>
+            <p>${bookData.author}</p>
+            <button class="removeBook">Remove</button>
+            <hr>
+            `;
+            bookDisplay.appendChild(bookDiv);
+            });
+    }
+    
+  });
 
-//   bookList.forEach((bookData) => {
-    // const bookDiv = document.createElement('div');
-    // bookDiv.classList.add('book');
-
-    // bookDiv.innerHTML = `<p>${bookData.name}</p>
-    // <p>${bookData.author}</p>
-    // <button class="removeBook">Remove</button>
-    // <hr>
-    // `;
-    // bookDisplay.appendChild(bookDiv);
-    // console.log(bookData)
-    // });
 
 // for(let i = 0; i < bookData.length; i++){
 //     console.log(bookList[i]);
