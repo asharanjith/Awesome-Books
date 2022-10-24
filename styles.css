@@ -1,52 +1,56 @@
 *,
 *::after,
 *::before {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 h1 {
-    text-align: left;
-    margin-bottom: 20px;
+  text-align: left;
+  margin-bottom: 20px;
 }
 
 #bookForm,
 #bookList {
-    width: 400px;
-    max-width: 80%;
-    margin: 20px auto;
+  width: 400px;
+  max-width: 80%;
+  margin: 20px auto;
 }
 
 #bookList {
-    margin-bottom: 50px;
+  margin-bottom: 50px;
 }
 
 input {
-    display: block;
-    padding: 6px;
-    width: 100%;
-    margin-bottom: 10px;
+  display: block;
+  padding: 6px;
+  width: 100%;
+  margin-bottom: 10px;
 }
 
 button {
-    padding: 5px;
-    width: 100px;
-    margin-top: 20px;
+  padding: 5px;
+  width: 100px;
+  margin-top: 20px;
 }
 
 .removeBook {
-margin-bottom: 10px;
-display: block;
+  margin-bottom: 10px;
+  display: block;
 }
-li{
-    list-style: none;
-    margin-bottom: 10px;
-    padding: 10px;
+
+li {
+  list-style: none;
+  margin-bottom: 10px;
+  padding: 10px;
 }
-.bookName,.bookAuthor{
-    padding: 10px;
+
+.bookName,
+.bookAuthor {
+  padding: 10px;
 }
-hr{
-    margin: 10px auto;
+
+hr {
+  margin: 10px auto;
 }
