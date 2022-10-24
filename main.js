@@ -1,57 +1,41 @@
 const bookName = document.querySelector('.bookName');
 const bookAuthor = document.querySelector('.bookAuthor');
 const form = document.querySelector('.addBook');
-const bookDisplay = document.querySelector('#bookList');
+const bookDisplay = document.querySelector('.book');
+let bookList = JSON.parse(localStorage.getItem('bookList')) || [];
 
-const bookList = [];
-
+function displayBook() {
+    bookDisplay.innerHTML = bookList.map((book, i) => {
+        return `
+            <li>
+                <p class="bookName">${book.name}</p>
+                <p class="bookAuthor">${book.author}</p> 
+                <button data-index=${i}>Remove</button>
+                <hr>
+            </li>   
+        `;
+    }).join('');
+}
   
-function savetoLocalStorage() {
-    const bookList = JSON.parse(localStorage.getItem('bookData'));
-
-    const bookData = {
-        name: bookName.value,
-        author: bookAuthor.value,
-    };
-
-    bookList.push(bookData);
-
-    localStorage.setItem('bookData', JSON.stringify(bookList));
-
-    console.log(bookData)
+function addBook(e) {
+    e.preventDefault();
+    const name = bookName.value;
+    const author = bookAuthor.value;
+    const book = { name, author };
+    bookList.push(book);
+    displayBook();
+    localStorage.setItem('bookList', JSON.stringify(bookList));
+    this.reset();
 }
 
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    savetoLocalStorage();
-    form.reset();
-  });
+function deleteBook(e) {
+    if (!e.target.matches('button')) return;
+    const index = e.target.dataset.index;
+    bookList.splice(index, 1);
+    displayBook();
+    localStorage.setItem('bookList', JSON.stringify(bookList));
+}
 
-//   console.log(bookList);
-
-//   document.addEventListener('DOMContentLoaded', () => {
-    // const bookList = JSON.parse(localStorage.getItem('bookData'));
-    // if (formDataInputs != null) {
-    //   nameElement.value = formDataInputs.name;
-    //   email.value = formDataInputs.email;
-    //   msgElement.value = formDataInputs.message;
-    // }
-//   });
-
-//   bookList.forEach((bookData) => {
-    // const bookDiv = document.createElement('div');
-    // bookDiv.classList.add('book');
-
-    // bookDiv.innerHTML = `<p>${bookData.name}</p>
-    // <p>${bookData.author}</p>
-    // <button class="removeBook">Remove</button>
-    // <hr>
-    // `;
-    // bookDisplay.appendChild(bookDiv);
-    // console.log(bookData)
-    // });
-
-// for(let i = 0; i < bookData.length; i++){
-//     console.log(bookList[i]);
-// }
-
+form.addEventListener('submit', addBook);
+bookDisplay.addEventListener('click', deleteBook);
+displayBook();
