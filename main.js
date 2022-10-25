@@ -48,7 +48,7 @@ form.addEventListener('submit', (e) => {
   const book = new Book(bookName.value, bookAuthor.value);
   book.addBook();
   book.displayBook();  
-  // form.reset;
+  form.reset();
 });
 bookList.forEach(book => {
   const bookObj = new Book(book.name, book.author);
