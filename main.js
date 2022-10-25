@@ -2,7 +2,7 @@ const bookName = document.querySelector('.bookName');
 const bookAuthor = document.querySelector('.bookAuthor');
 const form = document.querySelector('.addBook');
 const bookDisplay = document.querySelector('#bookList');
-const bookList = [];
+var bookList = [];
 const storedBooks = JSON.parse(localStorage.getItem('bookData'));
 const deleteBook = document.querySelectorAll('.removeBook')
 
@@ -11,14 +11,15 @@ const displayBook = (bookItem) => {
   newBook.classList.add('book');
   newBook.innerHTML = `<h3>${bookItem.bookTitle}</h3>
   <p>${bookItem.bookAuthor}</p>
-  <button class="removeBook" id="bookItem.bookTitle">Remove</button>
+  <button class="removeBook" id="${bookItem.bookTitle}">Remove</button>
 <hr>`;
-bookDisplay.appendChild(newBook);
+bookDisplay.appendChild(newBook)
 };
 
 if(storedBooks) {
   for(let item of storedBooks) {
     displayBook(item);
+    bookList.push(item)
   }
 };
 
@@ -38,14 +39,14 @@ form.addEventListener('submit', (e) => {
   form.reset();
 })
 
-// const removeBook = () => {
 
-// };
-
-// deleteBook.forEach(btn => {
-//   btn.addEventListener('click', (e) => {
-//     const item = e.target.id;
-//     console.log(item);
-//   })
-// })
+bookDisplay.addEventListener('click', (e) => {
+  console.log(e.target.tagName)
+  if(e.target.tagName == 'BUTTON') {
+    let deleteItem = e.target.id;
+    bookList = bookList.filter(book => book.bookTitle != deleteItem)
+    localStorage.setItem('bookData', JSON.stringify(bookList))
+    window.location.reload();
+  }
+})
 
