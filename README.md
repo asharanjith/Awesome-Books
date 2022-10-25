@@ -1,7 +1,21 @@
 # Awesome-Books
-In this project, we are creating a page that displays a list of books which are added using the form shown.
+In this project, we were able to build an application that stores a list of books added to the browser's localstorage and display their title and authors on the page. The goal of this project was to practice using classes instead of objects and arrays.
 
-##- Major languages: HTML, CSS, JavaScript
+##- Major languages: 
+- HTML
+- CSS
+- JavaScript
+
+### Prerequisites
+- Create a GitHub repository
+- Have VSCode or text editor of your choice installed
+- Have Git installed
+
+### Setup
+- git clone `https://github.com/asharanjith/Awesome-Books.git`
+- cd Awesome-Books
+- code .
+
 
 👤 **Author1**
 
