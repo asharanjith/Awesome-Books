@@ -10,6 +10,7 @@ class Book {
     this.name = name;
     this.author = author;
   }
+
   displayBook (){
     const newBook = document.createElement('div');
     newBook.classList.add('book');
@@ -33,7 +34,7 @@ class Book {
   }
 
   deleteBook(name) {
-    const removeItem= bookList.filter((item) => {
+    const removeItem = bookList.filter((item) => {
       return item.name !== name;
     });
     localStorage.setItem('bookList', JSON.stringify(removeItem));
@@ -50,6 +51,7 @@ form.addEventListener('submit', (e) => {
   book.displayBook();  
   form.reset();
 });
+
 bookList.forEach(book => {
   const bookObj = new Book(book.name, book.author);
   bookObj.displayBook();
