@@ -9,19 +9,19 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #eee;
+  font-family: 'Poppins', sans-serif;
+  background-color: #eee;
 }
 
-h1, h2 {
-    color: rgb(207, 71, 116);
+h1,
+h2 {
+  color: rgb(207, 71, 116);
 }
 
 h1 {
   text-align: center;
   margin-bottom: 20px;
 }
-
 
 #bookForm,
 #bookList {
@@ -31,10 +31,7 @@ h1 {
 }
 
 #bookList {
-    margin-top: 50px;
-}
-
-#bookList {
+  margin-top: 50px;
   margin-bottom: 50px;
 }
 
@@ -57,9 +54,8 @@ button {
 
 .delete {
   margin-bottom: 10px;
-  box-shadow: 2px 2px 2px 2px rgb(85, 85, 85)
+  box-shadow: 2px 2px 2px 2px rgb(85, 85, 85);
 }
-
 
 .bookName,
 .bookAuthor {
@@ -67,23 +63,21 @@ button {
 }
 
 .book-container {
-    border: 3px solid white;
-    padding: 20px;
+  border: 3px solid white;
+  padding: 20px;
 }
 
 .book {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-#bookForm h2{
-    text-align: center;
-    margin-bottom: 10px;
+#bookForm h2 {
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 .addBook div {
-    text-align: right;
+  text-align: right;
 }
-
-
