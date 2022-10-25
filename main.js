@@ -5,12 +5,20 @@ const bookDisplay = document.querySelector('.book');
 const bookList = JSON.parse(localStorage.getItem('bookList')) || [];
 
 
-class Display {
+// class Display {
+//   constructor(name, author){
+//     this.name = name;
+//     this.author = author;
+//   }
+
+  
+// }
+
+class Book {
   constructor(name, author){
     this.name = name;
     this.author = author;
   }
-
   displayBook (){
     const newBook = document.createElement('div');
     newBook.classList.add('book');
@@ -19,23 +27,11 @@ class Display {
     <button class="removeBook" id="${this.name}">Remove</button>
   <hr>`;
   bookDisplay.appendChild(newBook)
-};
-}
+  };
 
-class Book {
-  constructor(name, author){
-    this.name = name;
-    this.author = author;
-  }
-
-  addBook() {
-    const name = this.name;
-    const author = this.author;
-    const book = { name, author };
-    bookList.push(book);
-    Display(name, author);
-    localStorage.setItem('bookList', JSON.stringify(bookList));
-    this.reset();
+  addBook() {    
+    bookList.push(this);    
+    localStorage.setItem('bookList', JSON.stringify(bookList));    
   }
 
   deleteBook(e) {
@@ -48,11 +44,19 @@ class Book {
   }
 }
 
+
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-  new Book(bookName.value, bookAuthor.value)
-  form.reset;
+  const book = new Book(bookName.value, bookAuthor.value);
+  book.addBook();
+  book.displayBook();
+  // form.reset;
 });
+bookList.forEach(book => {
+  const bookObj = new Book(book.name, book.author);
+  bookObj.displayBook();
+});
+
 
 // bookDisplay.addEventListener('click', deleteBook);
 
