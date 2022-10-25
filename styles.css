@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Poppins:wght@300;400;600;800&display=swap');
+
 *,
 *::after,
 *::before {
@@ -6,16 +8,30 @@
   box-sizing: border-box;
 }
 
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #eee;
+}
+
+h1, h2 {
+    color: rgb(207, 71, 116);
+}
+
 h1 {
-  text-align: left;
+  text-align: center;
   margin-bottom: 20px;
 }
 
+
 #bookForm,
 #bookList {
-  width: 400px;
+  width: 550px;
   max-width: 80%;
   margin: 20px auto;
+}
+
+#bookList {
+    margin-top: 50px;
 }
 
 #bookList {
@@ -32,25 +48,42 @@ input {
 button {
   padding: 5px;
   width: 100px;
-  margin-top: 20px;
+  box-shadow: 2px 2px 2px 2px rgb(82, 82, 82);
+  background-color: rgb(207, 71, 116);
+  border: none;
+  color: white;
+  border-radius: 3px;
 }
 
-.removeBook {
+.delete {
   margin-bottom: 10px;
-  display: block;
+  box-shadow: 2px 2px 2px 2px rgb(85, 85, 85)
 }
 
-li {
-  list-style: none;
-  margin-bottom: 10px;
-  padding: 10px;
-}
 
 .bookName,
 .bookAuthor {
   padding: 10px;
 }
 
-hr {
-  margin: 10px auto;
+.book-container {
+    border: 3px solid white;
+    padding: 20px;
 }
+
+.book {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#bookForm h2{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.addBook div {
+    text-align: right;
+}
+
+
