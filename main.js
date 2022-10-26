@@ -4,6 +4,14 @@ const form = document.querySelector('.addBook');
 const bookContainer = document.querySelector('.book-container');
 const bookList = JSON.parse(localStorage.getItem('bookList')) || [];
 
+const bookForm = document.querySelector('#bookForm');
+const bookSection = document.querySelector('#bookList');
+const contactSection = document.querySelector('#contactDetails');
+
+const listBtn = document.getElementById('listBtn');
+const formBtn = document.getElementById('addBtn');
+const contactBtn = document.getElementById('contactBtn');
+
 class Book {
   constructor(name, author) {
     this.name = name;
@@ -51,44 +59,36 @@ bookList.forEach((book) => {
 });
 
 
+const listArr = [bookForm, contactSection];
+const formArr = [bookSection, contactSection];
+const contactArr = [bookForm, bookSection]
 
+listBtn.addEventListener('click', () => {
+  bookSection.classList.remove('hide')
+  listArr.forEach(item => {
+    item.classList.add('hide');
+  })
+})
 
+formBtn.addEventListener('click', () => {
+  bookForm.classList.remove('hide');
+  formArr.forEach(item => {
+    item.classList.add('hide');
+  })
+})
 
-// const bookSection=document.getElementsById('bookList');
-// const formSection=document.getElementsById('bookForm');
-// const contactSection=document.getElementsById('contactDetails');
-// const listBtn=document.getElementById('listBtn');
-// const formBtn=document.getElementById('formBtn');
-// const contactBtn=document.getElementById('contactBtn');
+contactBtn.addEventListener('click', () => {
+  contactSection.classList.remove('hide');
+  contactArr.forEach(item => {
+    item.classList.add('hide');
+  })
+})
 
-// listBtn.addEventListener('click',()=>{
-//     for(let i=0;i<bookSection.length;i+=1){
-//         bookSection[i].style.display='flex';  
-//         formSection[i].style.display='none';
-//         contactSection[i].style.display='none';
-//     }
-// });
+const initial = () => {
+  bookForm.classList.remove('hide');
+  formArr.forEach(item => {
+    item.classList.add('hide');
+  })
+}
 
-// formBtn.addEventListener('click',()=>{
-//     for(let i=0;i<formSection.length;i+=1){
-//         formSection[i].style.display='flex';  
-//         bookSection[i].style.display='none';
-//         contactSection[i].style.display='none';
-//     }
-// }
-// );
-
-// contactBtn.addEventListener('click',()=>{
-//     for(let i=0;i<contactSection.length;i+=1){
-//         contactSection[i].style.display='flex';  
-//         bookSection[i].style.display='none';
-//         formSection[i].style.display='none';
-//     }
-// }
-// );
-
-
-
-    
-
-
+window.onload = initial()

@@ -79,7 +79,6 @@ h1 {
   width: 550px;
   max-width: 80%;
   margin: 20px auto;
-  display: none;
   
 }
 
@@ -159,4 +158,8 @@ footer {
   color: white;
   background-color: grey;
   padding: 10px;
+}
+
+.hide {
+  display: none;
 }
