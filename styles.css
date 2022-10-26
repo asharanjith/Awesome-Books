@@ -10,14 +10,29 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-image: url('./img/bg-3.jpg');
+  background-image: url('./img/bg-3.jpg'), linear-gradient(rgb(68, 67, 67), rgb(51, 50, 50));
+  background-blend-mode: overlay;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
+.clock {
+  color: white;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 50px;
+  margin-left: auto;
+  width: 300px;
+  max-width: 100%;
+}
+
+.clock li {
+  display: inline-block;
+}
+
 main {
-  height: 90vh;
-  margin-top: 100px;
+  height: 94vh;
+  padding-top: 50px;
 }
 
 .container {
@@ -54,17 +69,16 @@ nav li {
   border-right: 2px solid #e90074;
   cursor: pointer;
 }
-
-nav li:hover {
-  color: #e90074;
-}
-
 nav li:last-child {
   border-right: none;
 }
 
-h1,
-h2 {
+nav a {
+  text-decoration: none;
+  color: #555;
+}
+
+#bookForm h2 {
   color: white;
 }
 
@@ -78,20 +92,32 @@ h1 {
 #contactDetails {
   width: 550px;
   max-width: 80%;
-  margin: 20px auto;
-  
+  margin: 0 auto;
+  padding-top: 50px;
+}
+
+#bookForm {
+  padding-top: 70px;
 }
 
 #bookList {
+  height: 380px;
+  overflow-y: scroll;
+  background-color: rgba(242, 242, 242, 0.9);
   margin-top: 50px;
-  margin-bottom: 50px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#bookList h1 {
+  color: #555;
 }
 
 input {
   display: block;
-  padding: 6px;
+  padding: 12px;
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   border: none;
 }
 
@@ -116,8 +142,6 @@ button {
 }
 
 .book-container {
-  /* height: 200px; */
-  /* overflow-y: scroll; */
   padding: 7px 10px;
 }
 
@@ -135,7 +159,7 @@ button {
 
 #bookForm h2 {
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 }
 
 .addBook div {
@@ -150,16 +174,39 @@ footer {
   background-color: white;
   padding: 13px 0;
 }
+
 #contactDetails{
-  /* display: flex; */
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  color: white;
-  background-color: grey;
-  padding: 10px;
+  background-color: #f2f2f2;
+  margin-top: 100px;
+  padding: 20px;
+  color: rgb(58, 57, 57);
+}
+
+#contactDetails h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+#contactDetails p {
+  margin-bottom: 15px;
+}
+
+#contactDetails ul {
+  margin-left: 40px;
+}
+
+#contactDetails a {
+  text-decoration: none;
+  color: #555;
+  font-weight: bold;
 }
 
 .hide {
   display: none;
+}
+
+.message {
+  display: block;
+  text-align: center;
 }
