@@ -1,39 +1,51 @@
 const bookName = document.querySelector('.bookName');
 const bookAuthor = document.querySelector('.bookAuthor');
 const form = document.querySelector('.addBook');
-const bookDisplay = document.querySelector('.book');
+const bookContainer = document.querySelector('.book-container');
 const bookList = JSON.parse(localStorage.getItem('bookList')) || [];
 
-function displayBook() {
-  bookDisplay.innerHTML = bookList.map((book, i) => `
-            <li>
-                <p class="bookName">${book.name}</p>
-                <p class="bookAuthor">${book.author}</p> 
-                <button data-index=${i}>Remove</button>
-                <hr>
-            </li>   
-        `).join('');
+class Book {
+  constructor(name, author) {
+    this.name = name;
+    this.author = author;
+  }
+
+  displayBook() {
+    const newBook = document.createElement('div');
+    newBook.classList.add('book');
+    newBook.innerHTML = `<p>"${this.name}" by ${this.author}</p>
+    `;
+    const deleteBook = document.createElement('button');
+    deleteBook.classList.add('delete');
+    deleteBook.textContent = 'Remove';
+    deleteBook.addEventListener('click', () => {
+      this.deleteBook(this.name);
+    });
+    newBook.appendChild(deleteBook);
+    bookContainer.appendChild(newBook);
+  }
+
+  addBook() {
+    bookList.push(this);
+    localStorage.setItem('bookList', JSON.stringify(bookList));
+  }
+
+  deleteBook= (name) => {
+    const removeItem = bookList.filter((item) => item.name !== name);
+    localStorage.setItem('bookList', JSON.stringify(removeItem));
+    window.location.reload();
+  }
 }
 
-function addBook(e) {
+form.addEventListener('submit', (e) => {
   e.preventDefault();
-  const name = bookName.value;
-  const author = bookAuthor.value;
-  const book = { name, author };
-  bookList.push(book);
-  displayBook();
-  localStorage.setItem('bookList', JSON.stringify(bookList));
-  this.reset();
-}
+  const book = new Book(bookName.value, bookAuthor.value);
+  book.addBook();
+  book.displayBook();
+  form.reset();
+});
 
-function deleteBook(e) {
-  if (!e.target.matches('button')) return;
-  const { index } = e.target.dataset;
-  bookList.splice(index, 1);
-  displayBook();
-  localStorage.setItem('bookList', JSON.stringify(bookList));
-}
-
-form.addEventListener('submit', addBook);
-bookDisplay.addEventListener('click', deleteBook);
-displayBook();
+bookList.forEach((book) => {
+  const bookObj = new Book(book.name, book.author);
+  bookObj.displayBook();
+});
