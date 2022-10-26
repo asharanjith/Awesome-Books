@@ -15,7 +15,7 @@ body {
 
 h1,
 h2 {
-  color: rgb(207, 71, 116);
+  color: #999;
 }
 
 h1 {
@@ -44,10 +44,10 @@ input {
 }
 
 button {
-  padding: 5px;
+  padding: 10px 5px;
   width: 100px;
-  box-shadow: 2px 2px 2px 2px rgb(82, 82, 82);
-  background-color: rgb(207, 71, 116);
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.9);
+  background-color: #e90074;
   border: none;
   color: white;
   border-radius: 3px;
@@ -55,7 +55,6 @@ button {
 
 .delete {
   margin-bottom: 10px;
-  box-shadow: 2px 2px 2px 2px rgb(85, 85, 85);
 }
 
 .bookName,
@@ -63,15 +62,16 @@ button {
   padding: 10px;
 }
 
-.book-container {
-  border: 3px solid white;
-  padding: 20px;
-}
-
 .book {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: white;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  border-radius: 5px;
+  color: #555
 }
 
 #bookForm h2 {
@@ -81,4 +81,8 @@ button {
 
 .addBook div {
   text-align: right;
+}
+
+#addBook {
+  background-color: #00ce89;
 }
