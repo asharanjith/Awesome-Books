@@ -86,14 +86,14 @@ input {
 }
 
 button {
-  padding: 10px 10px;
+  padding: 7px 10px;
   width: 100px;
   box-shadow: 1px 2px 3px black;
   background-color: #e90074;
   border: none;
   color: white;
   border-radius: 3px;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .delete {
@@ -108,7 +108,7 @@ button {
 .book-container {
   /* height: 200px; */
   /* overflow-y: scroll; */
-  padding: 10px;
+  padding: 7px 10px;
 }
 
 .book {
@@ -116,9 +116,11 @@ button {
   justify-content: space-between;
   align-items: center;
   background-color: white;
-  padding: 10px;
+  padding: 7px;
   border-radius: 5px;
   margin-bottom: 10px;
+  font-size: 14px;
+  color: #555;
 }
 
 #bookForm h2 {
