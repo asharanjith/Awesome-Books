@@ -49,3 +49,46 @@ bookList.forEach((book) => {
   const bookObj = new Book(book.name, book.author);
   bookObj.displayBook();
 });
+
+
+
+
+
+// const bookSection=document.getElementsById('bookList');
+// const formSection=document.getElementsById('bookForm');
+// const contactSection=document.getElementsById('contactDetails');
+// const listBtn=document.getElementById('listBtn');
+// const formBtn=document.getElementById('formBtn');
+// const contactBtn=document.getElementById('contactBtn');
+
+// listBtn.addEventListener('click',()=>{
+//     for(let i=0;i<bookSection.length;i+=1){
+//         bookSection[i].style.display='flex';  
+//         formSection[i].style.display='none';
+//         contactSection[i].style.display='none';
+//     }
+// });
+
+// formBtn.addEventListener('click',()=>{
+//     for(let i=0;i<formSection.length;i+=1){
+//         formSection[i].style.display='flex';  
+//         bookSection[i].style.display='none';
+//         contactSection[i].style.display='none';
+//     }
+// }
+// );
+
+// contactBtn.addEventListener('click',()=>{
+//     for(let i=0;i<contactSection.length;i+=1){
+//         contactSection[i].style.display='flex';  
+//         bookSection[i].style.display='none';
+//         formSection[i].style.display='none';
+//     }
+// }
+// );
+
+
+
+    
+
+

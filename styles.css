@@ -55,6 +55,14 @@ nav li {
   cursor: pointer;
 }
 
+nav li:hover {
+  color: #e90074;
+}
+
+nav li:last-child {
+  border-right: none;
+}
+
 h1,
 h2 {
   color: white;
@@ -66,10 +74,13 @@ h1 {
 }
 
 #bookForm,
-#bookList {
+#bookList,
+#contactDetails {
   width: 550px;
   max-width: 80%;
   margin: 20px auto;
+  display: none;
+  
 }
 
 #bookList {
@@ -139,4 +150,13 @@ button {
 footer {
   background-color: white;
   padding: 13px 0;
+}
+#contactDetails{
+  /* display: flex; */
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  background-color: grey;
+  padding: 10px;
 }
