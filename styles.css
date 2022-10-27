@@ -112,6 +112,10 @@ h1 {
   border-radius: 10px;
 }
 
+#bookList::-webkit-scrollbar {
+  display: none;
+}
+
 #bookList h1 {
   color: #555;
 }
